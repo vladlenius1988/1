@@ -21,6 +21,7 @@ class ProductDetail extends React.Component {
         const selectedProduct = products.find(product => product._id === id);
 
         this.setState({ selectedProduct });
+// don't forget remove
         console.log(selectedProduct);
       });
 
@@ -31,7 +32,10 @@ class ProductDetail extends React.Component {
   }
 
   // Добавление в корзину
+// the name of methods should show what they do
+// I would call 'addProductToCart
   addToCart = (product) => {
+// for 'cart' use enum
     const savedCart = localStorage.getItem('cart');
     const cart = savedCart ? JSON.parse(savedCart) : [];
 
@@ -45,11 +49,13 @@ class ProductDetail extends React.Component {
     }
 
     this.setState({ cart });
+    // the same as above
     localStorage.setItem('cart', JSON.stringify(cart)); 
     window.alert(existingProductIndex !== -1 ? "Товар уже в кошику" : "Товар додано до кошика");
   }
 
   // Збільшуємо кількість товару
+ // Increase in quantity of what?
   increaseQuantity = (productId) => {
     const updatedCart = this.state.cart.map(item => {
       if (item._id === productId) {
@@ -59,6 +65,7 @@ class ProductDetail extends React.Component {
     });
 
     this.setState({ cart: updatedCart });
+    //the same as above
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
