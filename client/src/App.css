@@ -15,15 +15,15 @@ body {
 }
 
 header {
-  height: 72px;
-  max-width: 100%;
+  height: 72px; //не используй высоту хардкодом, она завист от наполнения контентом твоего блока
+  max-width: 100%; // если ограничиваешь ширину, то найди причину почему она обльше 100%, 
 }
 
 main {
   max-width: 70%;
   margin-left: 15%;
   margin-top: 75px;
-  margin-right: 15%;
+  margin-right: 15%; //все эти маржины можно записать одной строкой
 }
 
 .headerContainer {
@@ -33,7 +33,7 @@ main {
   background: linear-gradient(to right, rgb(71, 72, 74), rgba(245, 223, 77, 1));
   color: white;
   padding-left: 15%;
-  padding-right: 15%;
+  padding-right: 15%; //ожно записать одной строкой
 }
 
 .logoContainer {
@@ -55,12 +55,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 57px;
+  width: 57px; //не ок идее линку ограничивать ширину
   
 }
 
 .logo {
-  font-family: "Steak";
+  font-family: "Steak"; 
   text-decoration: none;
   font-size: 1.2rem;
   width: 100px;
@@ -69,17 +69,17 @@ main {
 }
 
 .logo a {
-  font-family: "Steak";
+  font-family: "Steak"; // font-family: "Steak" подключи в body и будет наследоваться
   text-decoration: none;
   color: rgb(245, 223, 77, 1);
   font-size: 1.2rem;
   margin-right: 0;
   margin-left: auto;
-  line-height: 72px;
+  line-height: 72px; //найди способ центрирования по надежнее
 }
 
 .text {
-  font-family: "Steak";
+  font-family: "Steak"; //наследоваться
   text-decoration: none;
   font-size: 1.2rem;
   width: 57px;
@@ -101,7 +101,7 @@ main {
 }
 
 li {
-  list-style: none;
+  list-style: none; // это стили ресета
 }
 
 a.text:active,
@@ -633,3 +633,8 @@ h2 {
   background-color: #45a049;
   
 }
+
+//разнеси свои стили из апп компонента по своим местам в компонента, используй мощь компонентов 
+для разметки используй jsx, для логики js, 
+посмотри в сторону scss или других препроцессоров
+т.е в этом файле должны храниться только стили для апп компонента
