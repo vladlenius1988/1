@@ -21,7 +21,7 @@ class ProductDetail extends React.Component {
         const selectedProduct = products.find(product => product._id === id);
 
         this.setState({ selectedProduct });
-        console.log(selectedProduct);
+        console.log(selectedProduct); //pls remove
       });
 
     const savedCart = localStorage.getItem('cart');
