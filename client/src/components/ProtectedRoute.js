@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-
+// is not a component
 const ProtectedRoute = ({ children, requiredRole }) => {
   const token = localStorage.getItem('token');
 
