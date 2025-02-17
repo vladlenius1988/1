@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const ShoppingCart = () => {
   const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('cart');
+    const savedCart = localStorage.getItem('cart'); // <- you know
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
@@ -60,7 +60,7 @@ const ShoppingCart = () => {
 //формирование заказа
   const handleOrder = async () => {
     const userInfo = getUserInfo();
-console.log(userInfo)
+    console.log(userInfo) // remove
     const orderData = {
       userId: userInfo.id,
       
@@ -89,17 +89,17 @@ console.log(userInfo)
         throw new Error(`Ошибка сервера: ${response.status}`);
     }
       if (response.ok) {
-        alert('Замовлення успішно надіслано!');
+        alert('Замовлення успішно надіслано!'); // use custom component
         setCart([]); // Очищуємо кошик
-        localStorage.removeItem('cart'); // Очищуємо localStorage
+        localStorage.removeItem('cart'); // Очищуємо localStorage use here enum
       } else {
         alert('Не вдалося надіслати замовлення.');
-        console.log('Response status:', response.status);
-      console.log('Response body:', await response.text());
+        console.log('Response status:', response.status); //remove
+        console.log('Response body:', await response.text()); //remove
       }
     } catch (error) {
       console.error('Помилка:', error);
-      alert('Сталася помилка при надсиланні замовлення.');
+      alert('Сталася помилка при надсиланні замовлення.'); // create custom component with text prop and use it in all the project
       
     }
   
@@ -108,14 +108,14 @@ console.log(userInfo)
   return (
     <div className="shopping-cart">
       <h2>Кошик</h2>
-      {cart.length === 0 ? (
+      {cart.length === 0 ? ( // This expression can be shorter
         <p className="empty-cart">Кошик пустий</p>
       ) : (
         <>
           {cart.map((item) => (
             <div key={item._id} className="cart-item">
               <span className="item-name">{item.name}</span>
-              <span className="item-price">Ціна: {item.price} ₴</span>
+              <span className="item-price">Ціна: {item.price} ₴</span> 
               <span className="item-quantity">Кількість: {item.quantity || 1}</span>
               <span className="item-total-price">
                 Загальна сума: {item.price * (item.quantity || 1)} ₴
@@ -131,7 +131,7 @@ console.log(userInfo)
           <div className="total">
             <h3>Загальна сума замовлення: {totalPrice} ₴</h3>
           </div>
-          <button className="order-button" onClick={handleOrder}>Замовити</button>
+          <button className="order-button" onClick={handleOrder}>Замовити</button> <!-- Usually use default English language, if you want to add functionality look aside react-i18next -->
         </>
       )}
     </div>
