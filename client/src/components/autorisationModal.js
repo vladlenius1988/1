@@ -46,7 +46,7 @@ class AutorisationModal extends React.Component {
 
             if (response.ok) {
                 localStorage.setItem('token', token);
-                alert('Ви успішно увійшли в систему');
+                alert('Ви успішно увійшли в систему'); // use component
                 const role = this.getRoleFromToken(token);
                 this.props.onLogin(role);//??
             } else {
@@ -55,10 +55,10 @@ class AutorisationModal extends React.Component {
         } else {
             // Обробка реєстрації
             if (response.ok) {
-                alert('Реєстрація успішна');
+                alert('Реєстрація успішна');// use component
                 this.toggleForm(); // Перемкнути на форму входу після успішної реєстрації
             } else {
-                alert('Реєстрація не вдалася');
+                alert('Реєстрація не вдалася');// use component
             }
         }
     }
@@ -82,7 +82,12 @@ class AutorisationModal extends React.Component {
         return (
             <div className="modalActive">
                 <div className="modalClose" onClick={this.props.closeModal}>
-                    <img src={ModalCross} alt="ModalClose" />
+                    <!--
+                        do not use images for icons
+                        What if I want to change the look?
+                        my answer react-icons or icon fonts
+                    -->
+                    <img src={ModalCross} alt="ModalClose" /> 
                 </div>
                 <div className="modalWindow">
                     <form className='login-form' onSubmit={this.handleSubmit}>
@@ -92,7 +97,9 @@ class AutorisationModal extends React.Component {
                         <div className="flex-row">
                             <input
                                 id="username"
-                                className='lf--input'
+                                
+                        <input class
+                        <input classclassName='lf--input'
                                 placeholder='Логін'
                                 type='text'
                                 value={username}
@@ -103,6 +110,7 @@ class AutorisationModal extends React.Component {
                         </div>
                         {/* Додати поле для електронної пошти */}
                         {!isLogin && (
+                            // validation for email
                             <div className="flex-row">
                                 <input
                                     id="email"
@@ -128,7 +136,8 @@ class AutorisationModal extends React.Component {
                                 autoComplete="new-password"
                             />
                         </div>
-                        <input className='lf--submit' type='submit' value={isLogin ? 'Увійти' : 'Зареєструватися'} />
+                        <!--use btn-->
+                        <input className='lf--submit' type='submit' value={isLogin ? 'Увійти' : 'Зареєструватися'} /> 
                         <a className='registration' href='#' onClick={this.toggleForm}>
                             {isLogin ? 'Реєстрація' : 'Увійти'}
                         </a>
