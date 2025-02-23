@@ -12,11 +12,14 @@ import ProductDetail from './components/ProductCard.js';
 import ProtectedRoute from './components/ProtectedRoute.js';
 import ShoppingCart from './components/ShoppingCart.js';
 
+// Pls remove all comments in Russian language
+
 class App extends React.Component {
     state = {
         isAuthModalOpen: false, // Для модального вікна авторизації
         isRegModalOpen: false,   // Для модального вікна реєстрації
-        role: 'guest', // або 'User', 'admin', залежно від вашої логіки
+// for role create enum with roles
+        role: 'guest', // або 'User', 'admin', залежно від вашої логіки 
     };
 
     handleOpenAuthModal = () => {
