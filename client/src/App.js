@@ -16,7 +16,7 @@ class App extends React.Component {
     state = {
         isAuthModalOpen: false, // Для модального вікна авторизації
         isRegModalOpen: false,   // Для модального вікна реєстрації
-        role: 'guest', // або 'User', 'admin', залежно від вашої логіки
+        role: 'guest', 
     };
 
     handleOpenAuthModal = () => {
