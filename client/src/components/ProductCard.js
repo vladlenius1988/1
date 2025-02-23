@@ -21,7 +21,7 @@ class ProductDetail extends React.Component {
         const selectedProduct = products.find(product => product._id === id);
 
         this.setState({ selectedProduct });
-        console.log(selectedProduct);
+        
       });
 
     const savedCart = localStorage.getItem('cart');
@@ -30,7 +30,7 @@ class ProductDetail extends React.Component {
     }
   }
 
-  // Добавление в корзину
+  
   addToCart = (product) => {
     const savedCart = localStorage.getItem('cart');
     const cart = savedCart ? JSON.parse(savedCart) : [];
@@ -38,9 +38,9 @@ class ProductDetail extends React.Component {
     const existingProductIndex = cart.findIndex(item => item._id === product._id);
 
     if (existingProductIndex !== -1) {
-      cart[existingProductIndex].quantity += 1; // Увеличиваем количество для товара в корзине
+      cart[existingProductIndex].quantity += 1; 
     } else {
-      const updatedProduct = { ...product, quantity: 1 }; // Добавляем товар в корзину с количеством 1
+      const updatedProduct = { ...product, quantity: 1 }; 
       cart.push(updatedProduct);
     }
 
